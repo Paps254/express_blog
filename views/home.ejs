@@ -1,0 +1,26 @@
+
+<%- include("partials/header")%>
+
+<div class="container">
+<% if(posts){%>
+   
+        <% posts.forEach((p,i)=>{%>
+            <div class="card mt-5">
+                <div class="card-header">
+                  <%= p.title%>
+                </div>
+                <div class="card-body">
+                  <blockquote class="blockquote mb-0">
+                    <p>
+                        <%= p.body%>
+                    </p>
+                    <footer class="blockquote-footer"> <%= p.created_at%> <cite title="Source Title">Source Title</cite></footer>
+                  </blockquote>
+                </div>
+              </div>
+        <%})%>
+   
+<%}%>
+
+</div>
+<%- include("partials/footer")%>
