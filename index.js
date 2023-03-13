@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser=require("body-parser");
-const connection = require("./utils/db-connection");
+const con = require("./utils/db-connection");
 
 var app=express();
 
@@ -11,9 +11,10 @@ app.set('view engine', 'ejs');
 
 app.get("/",(req,res)=>{
 
-    connection.connect(function(err){
-        connection.query("select * from post order by created_at desc",function(err,posts){
+    con.connect(/*'error',*/ function(err){
+        con.query("select * from post order by created_at desc",function(err,posts, fields){
             if(err) throw err;
+            //console.log("[mysql error]", err);
             res.render("home",{posts});
         });
     });
@@ -32,8 +33,8 @@ app.post("/post-data",(req,res)=>{
     let postBody = req.body.postBody;
 
 
-    connection.connect(function(err){
-        connection.query(`insert into post (title,body) values("${postTitle}","${postBody}")`);
+    con.connect(function(err){
+        con.query(`insert into post (title,body) values("${postTitle}","${postBody}")`);
     }
     );
 
