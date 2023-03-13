@@ -1,6 +1,6 @@
 const express = require('express');
 const bodyParser=require("body-parser");
-const con = require("./utils/db-connection");
+const connection = require("./utils/db-connection");
 
 var app=express();
 
@@ -11,8 +11,8 @@ app.set('view engine', 'ejs');
 
 app.get("/",(req,res)=>{
 
-    con.connect(function(err){
-        con.query("select * from post order by created_at desc",function(err,posts){
+    connection.connect(function(err){
+        connection.query("select * from post order by created_at desc",function(err,posts){
             if(err) throw (err);
             res.render("home",{posts});
         });
