@@ -2,8 +2,9 @@
 <%- include("partials/header")%>
 
 <div class="container">
+  <h1 class="mb-4">Blog Article</h1>
+  <a href="/views/post.ejs" class="btn btn-success">New Post</a>
 <% if(posts){%>
-   
         <% posts.forEach((p,i)=>{%>
             <div class="card mt-5">
                 <div class="card-header">

@@ -9,10 +9,10 @@ var con=mysql.createConnection(
     }
     );
     
-    con.connect(/*'error',*/ function(err){
-        if (err) throw(err)
-        console.log("Connected!");
-        //console.log("[mysql error]", err);
+    con.connect(function(err){
+        //if (err) throw(err);
+        //console.log("Connected!");
+        console.log("[mysql error]", err);
     });
 
 module.exports=con;
