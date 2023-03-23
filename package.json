@@ -4,6 +4,7 @@
   "description": "",
   "main": "index.js",
   "module": "true",
+  "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "nodemon index"
@@ -14,7 +15,8 @@
     "body-parser": "^1.20.2",
     "ejs": "^3.1.8",
     "express": "^4.18.2",
-    "mysql": "^2.18.1",
-    "nodemon": "^2.0.21"
+    "mysql2": "^3.2.0",
+    "nodemon": "^2.0.21",
+    "sequelize": "^6.29.3"
   }
 }
